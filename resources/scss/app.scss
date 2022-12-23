@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
 @import '~bootstrap/scss/bootstrap';
 
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/brands.scss';
 
 
 
@@ -13,6 +16,13 @@ body {
 }
 //HEADER SECTION
 
+.my-bg{
+    background-color: $dark-green;
+}
+
+.my-span{
+    color: $bg-red !important;
+}
 
 header {
     background-color: rgb(194, 39, 44,0.8);
@@ -21,7 +31,12 @@ header {
     position: fixed;
     top: 0;
     z-index: 9999;
-
+    .logo{
+        display: flex;
+        align-items: center;
+        img{
+            width: 80px;
+        }
         h2 {
             font-weight: 700;
             font-size: 2rem;
@@ -32,35 +47,46 @@ header {
                 font-weight: bold;
             }
         }
+    }
+
     li a {
         display: block;
         text-decoration: none;
         text-transform: uppercase;
         font-weight: bolder;
-        font-size: 1rem;
-        color: $not-white;
+        font-size: 1.25rem;
+        color: $dark-green;
         transition: all 0.3s ease;
         &:hover:not(.active_li) {
-            color: $cream;
-            transform: translateX(4px);
+            // color: $cream;
+            color: $not-white;
+
+            transform: scaleX(1.15  );
         }
 
     }
     .active_li {
-        color: $dark-green;
+        color: $not-white;
+
+        font-weight: 700;
     }
+
+
 }
 // JUMBO SECTION
 
 #jumbo{
     // margin-top: 80px;
-    height: 600px;
+    height: 500px;
     background-image: url('https://static.vecteezy.com/system/resources/previews/001/594/267/original/red-christmas-background-free-vector.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: -100px;
     background-size: cover;
 
+    .text-jumbo {
+        margin-top: 120px;
+    }
     h1 {
         color: $not-white;
         text-align: center;
@@ -114,12 +140,14 @@ header {
             width: fit-content;
             padding: 1rem 2rem;
             height: fit-content;
+            border-radius: 0.6rem;
             background-color: rgba(0, 0, 0, 0.7);
             margin: auto;
         }
     }
 
     button.show_all_btn {
+
         background-color: $bg-red;
         padding: 0.7rem 1.8rem;
         border: none;
@@ -142,6 +170,12 @@ header {
 //  GIFTS LIST
 
 section#gifts_list {
+    a {
+        text-decoration: none;
+        color: $not_white;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
     .col{
         padding: .3rem;
         .my-card{
@@ -156,9 +190,9 @@ section#gifts_list {
                     max-width: 100%;
                     transition: all 0.3s ease;
                 }
-        &:hover img {
-            transform: scale(1.05);
-        }
+        // &:hover img {
+        //     transform: scale(1.05);
+        // }
     }}
     p {
         color: $not-white;
@@ -175,12 +209,7 @@ section#gifts_list {
             cursor: pointer;
         }
 
-        a {
-            text-decoration: none;
-            color: $not_white;
-            font-size: 1rem;
-            font-weight: bolder;
-        }
+
     }
     }
 
@@ -195,8 +224,21 @@ section#gifts_list {
     }
     font-weight: bold;
     .img-section{
-        img{
+        min-height: 300px;
+        img.gift{
             max-width: 70%;
+        }
+        position: relative;
+        .flake{
+            position: absolute;
+            z-index: 100;
+            top: -25px;
+            left: 10px;
+            width: 330px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
         }
     }
 
@@ -207,6 +249,11 @@ section#gifts_list {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
+    }
+    .text-section{
+        margin-left: 0;
+        color: $dark-green;
         button{
             a{
                 text-decoration: none;
@@ -214,7 +261,7 @@ section#gifts_list {
                 color: white;
 
             }
-            margin: 0 1rem;
+
             padding: .5rem 1.5rem ;
             font-weight: 700;
             color: white;
@@ -232,81 +279,59 @@ section#gifts_list {
             background-color: $bg-red;
         }
     }
-    .text-section{
-        color: $dark-green;
+}
+// CREATE GIFT
+#create{
+    button{
+        align-self: center;
+    }
+    label{
+        font-weight: bold;
+    }
+}
+// EDIT GIFT
+#edit{
+    margin-bottom: 2rem;
+
+    .btn{
+        border:none;
+        color: $cream;
+        font-weight: 700;
+        background-color: $bg-red;
     }
 }
 
-
 // FOOTER
 footer{
-    background-color: $dark-green;
 
     .footerTop{
+        background-color: $dark-green;
+        color: $not-white;
         height: 320px;
-        background-image: url('../img/footer-bg.jpg');
-        background-size: cover;
+
+        display: flex;
+        justify-content: space-between;
 
         .container{
             height: 100%;
             position: relative;
             overflow: hidden;
-
-
-
-            ul{
-                list-style: none;
-                color: #959595;
-                font-size: 13px;
-                margin-right: 20px;
-
-                h4{
-                    font-size: 16px;
-                    color: white;
-                    margin: 12px 0;
-                    text-transform: uppercase;
-                }
-
-                li{
-                    padding: 2px 0;
-
-                    &:not(:first-of-type):hover{
-                        text-decoration: underline;
-                        cursor: pointer;
-                    }
+            .grid{
+                //text-align: ;
+                a{
+                    text-decoration: none;
                 }
             }
 
-            img{
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translate(0, -50%);
-            }
         }
     }
 
     .footerBottom{
-        height: 80px;
+        height: 150px;
         background-color: $bg-red;
-        .container{
-            height: 100%;
-
-            .shopNowButton{
-                border: 2px solid $not-white;
-                padding: 5px 10px;
-                color: $not-white;
-                font-size: 16px;
-            }
-
-            .socials{
-                width: 40%;
-                h4{
-                    margin: 0;
-                    color: $not-white;
-                    font-weight: 700;
-                }
-            }
+        color: $not-white;
+        a{
+            text-decoration: none;
         }
     }
 
