@@ -101,7 +101,7 @@
 
     <!-- Copyright -->
     <div class="footerBottom text-center p-4">
-        <h4 class="p-4">© 2022 Copyright: Made with &hearts; By Gianfranco Ghiani, Mattia Giorgetti, Marco Sbrascia and Alessandro Sebastiano</h4>         <a><
+        <h4 class="p-4">© 2022 Copyright: Made with &hearts; By Gianfranco Ghiani, Mattia Giorgetti, Marco Sbrascia and Alessandro Sebastiano</h4>
     </div>
     <!-- Copyright -->
 </footer>

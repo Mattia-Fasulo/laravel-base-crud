@@ -13,6 +13,9 @@ body {
     background-color: $not-white;
     color: red;
     height: 1000px;
+    main{
+        background-image: url('/resources/img/main-bg.png');
+    }
 }
 //HEADER SECTION
 
@@ -289,16 +292,22 @@ section#gifts_list {
         font-weight: bold;
     }
 }
+.my-btn{
+    border:none;
+    color: white;
+    font-weight: 700;
+    background-color: $bg-red;
+    &:hover{
+        color: $cream;
+        font-weight: 700;
+        background-color: darken($color: $bg-red, $amount: 10);
+    }
+}
 // EDIT GIFT
 #edit{
     margin-bottom: 2rem;
 
-    .btn{
-        border:none;
-        color: $cream;
-        font-weight: 700;
-        background-color: $bg-red;
-    }
+
 }
 
 // FOOTER

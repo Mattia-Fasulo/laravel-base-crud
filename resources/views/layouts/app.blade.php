@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="{{Vite::asset('/image/christmas-gift-icon-34992.png')}}">
+
     <title>@yield('page_title', 'Gifts')</title>
 
     <!-- Fonts -->
