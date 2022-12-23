@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\ResourceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    $giftIntro = DB::table('gifts')
+                    ->limit(4)
+                    ->get();
+    // dd($giftIntro);
+    return view('home', compact('giftIntro'));
+})->name('home');
+
+Route::resource('gifts', ResourceController::class);

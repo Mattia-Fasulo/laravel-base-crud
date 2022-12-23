@@ -1,1 +1,313 @@
-@import '~bootstrap/scss/bootstrap'
+@use './partials/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import '~bootstrap/scss/bootstrap';
+
+
+
+
+body {
+    font-family: 'Mountains of Christmas', cursive;
+    background-color: $not-white;
+    color: red;
+    height: 1000px;
+}
+//HEADER SECTION
+
+
+header {
+    background-color: rgb(194, 39, 44,0.8);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+        h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 0.7rem;
+            span {
+                text-transform: uppercase;
+                color: $dark-green;
+                font-weight: bold;
+            }
+        }
+    li a {
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 1rem;
+        color: $not-white;
+        transition: all 0.3s ease;
+        &:hover:not(.active_li) {
+            color: $cream;
+            transform: translateX(4px);
+        }
+
+    }
+    .active_li {
+        color: $dark-green;
+    }
+}
+// JUMBO SECTION
+
+#jumbo{
+    // margin-top: 80px;
+    height: 600px;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/594/267/original/red-christmas-background-free-vector.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -100px;
+    background-size: cover;
+
+    h1 {
+        color: $not-white;
+        text-align: center;
+        font-size: 5rem;
+     }
+     p {
+         color: $not-white;
+         text-align: center;
+         font-size: 2rem;
+     }
+     .add_btn {
+        background-color: $dark-green;
+        border: none;
+        color: $not-white;
+        padding: 0.6rem 1.5rem;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 0 auto;
+
+        a {
+            text-decoration: none;
+            color: $not-white;
+        }
+
+
+        &:hover {
+            background-color: $not-white;
+            a {
+                color: $bg-red;
+            }
+
+        }
+     }
+}
+// GIFT HOME
+#home{
+
+    .carousel-item{
+        height: 460px;
+        border-radius: 10px;
+        img{
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .carousel-caption {
+
+            h5, p{
+                color: white;
+                font-weight: 700;
+            }
+            width: fit-content;
+            padding: 1rem 2rem;
+            height: fit-content;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: auto;
+        }
+    }
+
+    button.show_all_btn {
+        background-color: $bg-red;
+        padding: 0.7rem 1.8rem;
+        border: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $dark-green;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: $not-white;
+
+        }
+    }
+}
+
+
+//  GIFTS LIST
+
+section#gifts_list {
+    .col{
+        padding: .3rem;
+        .my-card{
+            background-color: $dark-red;
+            height: 405px;
+            overflow: hidden;
+            border-radius: 0.6rem;
+            .img_wrapper {
+                width: 100%;
+
+                img{
+                    max-width: 100%;
+                    transition: all 0.3s ease;
+                }
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }}
+    p {
+        color: $not-white;
+    }
+    h4 {
+
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.8rem;
+        margin-top: 0.6rem;
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: $not_white;
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+    }
+    }
+
+
+
+
+}
+// GIFT SHOW SECTION
+#single_gift{
+    .modal_bg {
+        background-color: $bg-red;
+    }
+    font-weight: bold;
+    .img-section{
+        img{
+            max-width: 70%;
+        }
+    }
+
+    h5, h2{
+        font-weight: 900;
+    }
+    .btn-section{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        button{
+            a{
+                text-decoration: none;
+                text-transform: uppercase;
+                color: white;
+
+            }
+            margin: 0 1rem;
+            padding: .5rem 1.5rem ;
+            font-weight: 700;
+            color: white;
+
+        }
+        .del{
+            background-color: $dark-green;
+            text-transform: uppercase;
+
+        }
+        .edit{
+            background-color: $cream;
+        }
+        .list{
+            background-color: $bg-red;
+        }
+    }
+    .text-section{
+        color: $dark-green;
+    }
+}
+
+
+// FOOTER
+footer{
+    background-color: $dark-green;
+
+    .footerTop{
+        height: 320px;
+        background-image: url('../img/footer-bg.jpg');
+        background-size: cover;
+
+        .container{
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+
+
+
+            ul{
+                list-style: none;
+                color: #959595;
+                font-size: 13px;
+                margin-right: 20px;
+
+                h4{
+                    font-size: 16px;
+                    color: white;
+                    margin: 12px 0;
+                    text-transform: uppercase;
+                }
+
+                li{
+                    padding: 2px 0;
+
+                    &:not(:first-of-type):hover{
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            img{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+        }
+    }
+
+    .footerBottom{
+        height: 80px;
+        background-color: $bg-red;
+        .container{
+            height: 100%;
+
+            .shopNowButton{
+                border: 2px solid $not-white;
+                padding: 5px 10px;
+                color: $not-white;
+                font-size: 16px;
+            }
+
+            .socials{
+                width: 40%;
+                h4{
+                    margin: 0;
+                    color: $not-white;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+}

@@ -15,7 +15,8 @@ class GiftTableSeeder extends Seeder
      */
     public function run()
     {
-        $gifts = config('gifts_seeder');
+        $gifts = config('gifts_seeder.gifts');
+
         foreach($gifts as $gift){
             $newgift = new Gift();
             $newgift->title = $gift['title'];

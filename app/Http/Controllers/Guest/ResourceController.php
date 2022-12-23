@@ -15,7 +15,8 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        //
+        $gifts = Gift::all();
+        return view('gifts.index', compact('gifts'));
     }
 
     /**
@@ -25,7 +26,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        return view('gifts.create');
     }
 
     /**
@@ -36,7 +37,18 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData = $request->all();
+
+        $newgift = new Gift();
+        $newgift->title = $formData['title'];
+        $newgift->description = $formData['description'];
+        $newgift->image = $formData['image'];
+        $newgift->type = $formData['type'];
+        $newgift->name = $formData['name'];
+        $newgift->surname = $formData['surname'];
+        $newgift->save();
+
+        return redirect()->route('gifts.show', ['gift'=>$newgift->id]);
     }
 
     /**
@@ -45,9 +57,9 @@ class ResourceController extends Controller
      * @param  int  $id
      *
      */
-    public function show($id)
+    public function show(Gift $gift)
     {
-        //
+        return view('gifts.show', compact('gift'));
     }
 
     /**
@@ -56,9 +68,10 @@ class ResourceController extends Controller
      * @param  int  $id
      *
      */
-    public function edit($id)
+    public function edit(Gift $gift)
     {
-        //
+        // $gift = Gift::find($id);
+        return view('gifts.edit', compact('gift'));
     }
 
     /**
@@ -70,7 +83,20 @@ class ResourceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $gift = Gift::find($id);
+
+        $formData = $request->all();
+
+        $gift->title = $formData['title'];
+        $gift->description = $formData['description'];
+        $gift->image = $formData['image'];
+        $gift->type = $formData['type'];
+        $gift->name = $formData['name'];
+        $gift->surname = $formData['surname'];
+        $gift->update();
+
+        return redirect()->route('gifts.show',  ['gift'=>$gift->id]);
     }
 
     /**
@@ -81,6 +107,8 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gift = Gift::find($id);
+        $gift->delete();
+        return redirect()->action([ResourceController::class, 'index']);
     }
 }
